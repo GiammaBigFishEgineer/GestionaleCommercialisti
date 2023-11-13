@@ -1,0 +1,587 @@
+{% extends 'studio/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<section style="color:#fff;padding:50px;" id="modifica_cliente">
+
+    <h2 class="mb-3">Anagrafica {{cliente.nome}} {{cliente.cognome}}</h2>
+    <form method="post">
+        {% csrf_token %}
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">Nome e Cognome</span>
+        {{form.nome}}
+        {{form.cognome}}
+        <span class="input-group-text">Ragione sociale</span>
+        {{form.ragione_sociale}}
+      </div>
+  
+      <div class="input-group mb-3">
+        <span class="input-group-text">Città</span>
+        {{form.city}}
+        <span class="input-group-text">Indirizzo</span>
+        {{form.indirizzo}}
+        <span class="input-group-text">Comune</span>
+        {{form.comune}}
+      </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon3">Partita IVA</span>
+    {{form.partita_iva}}
+    <span class="input-group-text">Codice Univoco</span>
+    {{form.codice_univoco}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Codice Fiscale</span>
+    {{form.codice_fiscale}}
+    <span class="input-group-text">PEC</span>
+    {{form.PEC}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Natura Giuridica</span>
+    {{form.natura_giuridica}}
+    <span class="input-group-text">Data Costituzione</span>
+    {{form.data_costituzione}}
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Luogo di nascita</span>
+    {{form.luogo_nascita}}
+    <span class="input-group-text">Data Di Nascita</span>
+    {{form.data_nascita}}
+    
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Tipo documento</span>
+    {{form.tipo_documento}}
+    <span class="input-group-text">Data rilascio</span>
+    {{form.data_rilascio}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Autorità</span>
+    {{form.autorità}}
+    <span class="input-group-text">Codice Attività</span>
+    {{form.codice_attività}}
+    <span class="input-group-text">Numero Telefono</span>
+    {{form.numero}}
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Compagnia Assicurazione</span>
+    {{form.compagnia_assicurazione}}
+    <span class="input-group-text">Numero Polizza</span>
+    {{form.numero_polizza}}
+    <span class="input-group-text">Massimale Copertura</span>
+    {{form.massimale_copertura}}
+  </div>
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">Data Inizio</label>
+    {{form.data_inizio}}
+    <label class="input-group-text" for="inputGroupSelect01">Data Cessazione</label>
+    {{form.data_cessazione}}
+  </div>
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">Studio</label>
+    {{form.studio}}
+    <label class="input-group-text" for="inputGroupSelect01">Fatturazione</label>
+    {{form.fattura}}
+  </div>
+  
+  <div class="input-group mb-5 w-50">
+    <label class="input-group-text" for="inputGroupSelect01">Referente</label>
+    {{form.referente_studio}}
+  </div>
+  <h5>Sezione fatture</h5>
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">Importo Contabile</label>
+    {{form.importo_contabile}}
+    <label class="input-group-text" for="inputGroupSelect01">Periodo Fatturazione</label>
+    {{form.periodo_fatturazione}}
+    
+  </div>
+  <div class="form-check mb-5">
+  {{form.rivalsa}}
+          <label class="form-check-label" for="flexCheckDefault">
+            Rivalsa
+          </label>
+        </div>
+        
+
+
+  <div class="form-check mb-4">
+    {{form.firmato}}
+          <label class="form-check-label" for="flexCheckDefault">
+            Mandato professionale firmato
+          </label>
+          {% if allerta %}
+          <h6 class="text-danger">Attenzione, il contratto non é stato ancora firmato</h6>
+          {%endif%}
+        </div>
+
+        <div class="d-flex mb-5">
+          <div class="form-floating mx-auto">
+            {{form.note_generali}}
+            <label class="text-dark" for="id_note_generali">Note Generali</label>
+          </div>
+          <div class="form-floating mx-auto">
+            {{form.bozze_da_fatturare}}
+            <label class="text-dark" for="id_bozze_da_fatturare">Bozze da Fatturare</label>
+          </div>
+          <div class="form-floating mx-auto">
+            {{form.note_referenti}}
+          <label class="text-dark" for="id_note_referenti">Note per Referenti</label>
+          </div>
+        </div>
+
+  <button type="submit" class="btn btn-primary mb-3">Modifica cliente</button>
+  {% if form.errors %}
+  <div class="alert alert-danger">
+    <h4>{{form.errors}}</h4>
+  </div>
+  {% endif %}
+</form>
+<form action="{% url 'cancella_cliente' cliente.pk %}">
+<button type="submit" class="btn btn-danger mb-3" onclick="clicked(event)">
+Cancella cliente</button>
+</form>
+<!--TABELLA E DATI ________________-->
+<hr>
+<div class="d-flex">
+  <h6 class="p-4">Totale Fattura: {{totale_fattura}}€ da pagare con periodo {{cliente.periodo_fatturazione}} in rate da {{pagamento_periodico}}€</h6>
+  <form method="post" action="{% url 'fattura_form' cliente.pk %}">
+    {% csrf_token %}
+  <div>
+    <table class="table table-primary table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">N. Fatture</th>
+          <th scope="col">Data ultima ft.</th>
+          <th scope="col">N.Articoli prima nota</th>
+          <th scope="col">Data ultimo Art. prima nota</th>
+          <th scope="col">Elimina</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for n in lista_fatture%}
+        <tr>
+          <th scope="row">{{n.n_fatture}}</th>
+          <td>{{n.data_ultima_fattura}}</td>
+          <td>{{n.n_articoli}}</td>
+          <td>{{n.data_ultimo_articolo}}</td>
+          <td class="text-center">
+            <form action="{% url 'fattura_delete' n.pk %}">
+              <button type="submit" class="btn btn-danger btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+              </form>
+          </td>
+        </tr>
+        {%endfor%}
+        <tr>
+          <th scope="row"><input name="n_fatture" class="form-control" type="number"></th>
+          <td><input name="data_ultima_fattura" class="form-control" type="date"></td>
+          <td><input name="n_articoli" class="form-control" type="number"></td>
+          <td><input name="data_ultimo_articolo" class="form-control" type="date"></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary mb-3">Salva tabella</button>
+  </div>
+  </form>
+  
+</div>
+
+
+<!-- ________________SEZIONE Legale Rappresentate ____________-->
+<div class="mt-5 mb-3">
+  
+
+<div class="list-group w-50">
+  <a  class="list-group-item list-group-item-action active" aria-current="true">
+    Legali Rappresentati
+  </a>
+  {% for i in cliente.legale_rappresentate.all%}
+  <a href="{% url 'legale_rappresentateC_update' i.pk %}" class="list-group-item list-group-item-action">{{i}}</a>
+  {%endfor%}
+  <a href="{% url 'legale_rappresentateC_create' cliente.pk %}" class="list-group-item list-group-item-action bg-warning">Crea Legale Rappresentate</a>
+
+</div>
+</div>
+
+
+<!--SEZIONE CARTELLE-->
+<form method="post" action="{% url 'crea_folder' cliente.pk%}">
+  {% csrf_token %}
+  <div class="input-group mb-3 w-50">
+    <button type="submit" class="btn btn-success">Crea una nuova cartella</button>
+    <input type="text" name="nome" class="form-control" placeholder="Nome">
+  </div>
+</form>
+<div class="vh-100 container mt-5 d-block">
+  
+  <div class="d-flex">
+  {% for folder in folders %}
+  <div class="dropdown mx-auto">
+      <button style="width:100px;height:100px;font-size:40px;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-folder"></i>
+      </button>
+      <ul style="min-width:500px; border:2px solid #000;" class="dropdown-menu p-3">
+        
+        <h5>{{folder.nome}} 
+          <!--
+          <form method="post" action="{% url 'modifica_folder' folder.pk %}">
+          <input type="text" name="nome" class="form control" placeholder="Modifica nome">
+        </form>-->
+      </h5>
+        <p class="text-muted">Creata il: {{folder.date_added}}</p>
+        <form class="mb-3" method="post" action="{% url 'delete_folder' folder.pk%}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger" onclick="clicked(event)">Elimina Cartella</button> 
+        </form>
+        <form class="mt-3 mb-3" method="post" action="{% url 'upload' folder.pk%}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="file" required multiple="multiple" name="myfile"/>
+          <button type="submit" class="btn btn-primary mt-3">Aggiungi</button> 
+        </form>
+        <ul class="list-group">
+          {% if folder.file1%}
+          <li class="list-group-item"><a href="{{folder.file1.url}}" download>{{folder.file1}}</a>
+            <form action="{% url 'canella_file1' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file2%}
+          <li class="list-group-item"><a href="{{folder.file2.url}}" download>{{folder.file2}}</a>
+            <form action="{% url 'canella_file2' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file3%}
+          <li class="list-group-item"><a href="{{folder.file3.url}}" download>{{folder.file3}}</a>
+            <form action="{% url 'canella_file3' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file4%}
+          <li class="list-group-item"><a href="{{folder.file4.url}}" download>{{folder.file4}}</a>
+            <form action="{% url 'canella_file4' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file5%}
+          <li class="list-group-item"><a href="{{folder.file5.url}}" download>{{folder.file5}}</a>
+            <form action="{% url 'canella_file5' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+            </li>
+          {%endif%}
+          {% if folder.file6%}
+          <li class="list-group-item"><a href="{{folder.file6.url}}" download>{{folder.file6}}</a>
+            <form action="{% url 'canella_file6' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file7%}
+          <li class="list-group-item"><a href="{{folder.file7.url}}" download>{{folder.file7}}</a>
+            <form action="{% url 'canella_file7' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+            </li>
+          {%endif%}
+          {% if folder.file8%}
+          <li class="list-group-item"><a href="{{folder.file8.url}}" download>{{folder.file8}}</a>
+            <form action="{% url 'canella_file8' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+            </li>
+          {%endif%}
+          {% if folder.file9%}
+          <li class="list-group-item"><a href="{{folder.file9.url}}" download>{{folder.file9}}</a>
+            <form action="{% url 'canella_file9' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file10%}
+          <li class="list-group-item"><a href="{{folder.file10.url}}" download>{{folder.file10}}</a>
+            <form action="{% url 'canella_file10' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file11%}
+          <li class="list-group-item"><a href="{{folder.file11.url}}" download>{{folder.file11}}</a>
+            <form action="{% url 'canella_file11' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file12%}
+          <li class="list-group-item"><a href="{{folder.file12.url}}" download>{{folder.file12}}</a>
+            <form action="{% url 'canella_file12' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file13%}
+          <li class="list-group-item"><a href="{{folder.file13.url}}" download>{{folder.file13}}</a>
+            <form action="{% url 'canella_file13' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file14%}
+          <li class="list-group-item"><a href="{{folder.file14.url}}" download>{{folder.file14}}</a>
+            <form action="{% url 'canella_file14' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+          {% if folder.file15%}
+          <li class="list-group-item"><a href="{{folder.file15.url}}" download>{{folder.file15}}</a>
+          <form action="{% url 'canella_file15' folder.pk %}">
+              <button type="submit" class="btn btn-danger mb-2 mt-2 btn-sm" onclick="cancelfolder(event)">
+                <i class="fa-solid fa-trash"></i></button>
+              </form> 
+          </li>
+          {%endif%}
+        </ul>
+      </ul>
+      <p class="text-center mt-3">{{folder.nome}}</p>
+  </div>
+  
+  {%endfor%}
+</div>
+
+<!--  ____________________ STAMPE__________________________-->
+<div style="margin-top:10px;" class="container">
+
+
+  <form method="post" action="{% url 'mandato_professionale' cliente.pk %}">
+    {% csrf_token %}
+    <div class="input-group">
+      <span class="input-group-text">Mandato professionale</span>
+      <textarea class="form-control" name="mandato_professionale" aria-label="With textarea">{{cliente.mandato_professionale}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Salva</button>
+    <a onclick="savedate1()" target="_blank" class="btn btn-success mt-4" href="{% url 'pdf_mandato_professionale' cliente.pk %}" role="button" aria-disabled="true">Stampa</a>
+    {% if cliente.date1 %}
+    <p class="text-muted">Stampato il:{{cliente.date1}}</p>
+    {%endif%}
+  </form>
+  <hr>
+
+  <form method="post" action="{% url 'scheda_idi' cliente.pk %}">
+    {% csrf_token %}
+    <div class="input-group">
+      <span class="input-group-text">Informativa al consenso</span>
+      <textarea class="form-control" name="scheda_idi" aria-label="With textarea">{{cliente.scheda_idi}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Salva</button>
+    <a onclick="savedate2()" target="_blank" class="btn btn-success mt-4" href="{% url 'pdf_scheda_idi' cliente.pk %}" role="button" aria-disabled="true">Stampa</a>
+    {% if cliente.date2 %}
+    <p class="text-muted">Stampato il:{{cliente.date2}}</p>
+    {%endif%}
+  </form>
+  <hr>
+
+  
+
+  
+  <form method="post" action="{% url 'informat_cons' cliente.pk %}">
+    {% csrf_token %}
+    <div class="input-group">
+      <span class="input-group-text">Scheda identificazione</span>
+      <textarea class="form-control" name="informat_cons" aria-label="With textarea">{{cliente.informat_cons}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Salva</button>
+    <a onclick="savedate4()" target="_blank" class="btn btn-success mt-4" href="{% url 'pdf_informat_cons' cliente.pk %}" role="button" aria-disabled="true">Stampa</a>
+    {% if cliente.date4 %}
+    <p class="text-muted">Stampato il:{{cliente.date4}}</p>
+    {%endif%}
+  </form>
+  <hr>
+
+  <form method="post" action="{% url 'dps' cliente.pk %}">
+    {% csrf_token %}
+    <div class="input-group">
+      <span class="input-group-text">DPS</span>
+      <textarea class="form-control" name="dps" aria-label="With textarea">{{cliente.dps}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Salva</button>
+    <a onclick="savedate5()" target="_blank" class="btn btn-success mt-4" href="{% url 'pdf_dps' cliente.pk %}" role="button" aria-disabled="true">Stampa</a>
+    {% if cliente.date5 %}
+    <p class="text-muted">Stampato il:{{cliente.date5}}</p>
+    {%endif%}
+  </form>
+  <hr>
+
+  <form method="post" action="{% url 'contitolari' cliente.pk %}">
+    {% csrf_token %}
+    <div class="input-group">
+      <span class="input-group-text">contitolari</span>
+      <textarea class="form-control" name="contitolari" aria-label="With textarea">{{cliente.contitolari}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Salva</button>
+    <a onclick="savedate6()" target="_blank" class="btn btn-success mt-4" href="{% url 'pdf_contitolari' cliente.pk %}" role="button" aria-disabled="true">Stampa</a>
+    {% if cliente.date6 %}
+    <p class="text-muted">Stampato il:{{cliente.date6}}</p>
+    {%endif%}
+  </form>
+  <hr>
+
+  <form method="post" action="{% url 'inc' cliente.pk %}">
+    {% csrf_token %}
+    <div class="input-group">
+      <span class="input-group-text">INC</span>
+      <textarea class="form-control" name="inc" aria-label="With textarea">{{cliente.inc}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4">Salva</button>
+    <a onclick="savedate7()" target="_blank" class="btn btn-success mt-4" href="{% url 'pdf_inc' cliente.pk %}" role="button" aria-disabled="true">Stampa</a>
+    {% if cliente.date7 %}
+    <p class="text-muted">Stampato il:{{cliente.date7}}</p>
+    {%endif%}
+  </form>
+  
+  
+  
+</div>
+<!--________________________END STAMPE____________________-->
+
+</section>
+
+<script>
+  
+        
+
+
+        var cols = document.getElementsByTagName("input");
+        for(i = 0; i < cols.length; i++) {
+          cols[i].className = 'form-control form-control-sm';
+        }
+        document.getElementById('id_studio').className = 'form-select form-select-sm';
+        document.getElementById('id_fattura').className = 'form-select form-select-sm';
+        document.getElementById('id_referente_studio').className = 'form-select form-select-sm';
+        document.getElementById('id_periodo_fatturazione').className = 'form-select form-select-sm';
+        document.getElementById('id_firmato').className = 'form-check-input';
+        document.getElementById('id_rivalsa').className = 'form-check-input';
+
+        document.getElementById('id_note_generali').className = 'form-control';
+        document.getElementById('id_note_generali').style = 'width:400px; height:300px;';
+        document.getElementById('id_bozze_da_fatturare').className = 'form-control';
+        document.getElementById('id_bozze_da_fatturare').style = 'width:400px; height:300px;';
+        document.getElementById('id_note_referenti').className = 'form-control';
+        document.getElementById('id_note_referenti').style = 'width:400px; height:300px;';
+
+        function clicked(e)
+        {
+            if(!confirm('Questa azione é irreversibile, sei sicuro ?')) {
+                e.preventDefault();
+            }
+        }
+
+        function cancelfolder(e)
+        {
+            if(!confirm('Questa azione é irreversibile, sei sicuro ?')) {
+                e.preventDefault();
+            }
+        }
+
+
+        // Salvo data Stampa
+            
+        var date = new Date().toISOString().slice(0, 10);
+        console.log(date)
+        
+        function savedate1 () {
+          $.ajax({
+            url: '/update_date1/{{cliente.id}}/',
+            data: {'date': date},
+            type: 'POST'
+          }).done(function(response){
+            console.log(response);
+          });
+        }
+        function savedate2 () {
+          $.ajax({
+            url: '/update_date2/{{cliente.id}}/',
+            data: {'date': date},
+            type: 'POST'
+          }).done(function(response){
+            console.log(response);
+          });
+        }
+        function savedate3 () {
+          $.ajax({
+            url: '/update_date3/{{cliente.id}}/',
+            data: {'date': date},
+            type: 'POST'
+          }).done(function(response){
+            console.log(response);
+          });
+        }
+        function savedate4 () {
+          $.ajax({
+            url: '/update_date4/{{cliente.id}}/',
+            data: {'date': date},
+            type: 'POST'
+          }).done(function(response){
+            console.log(response);
+          });
+        }
+        function savedate5 () {
+          $.ajax({
+            url: '/update_date5/{{cliente.id}}/',
+            data: {'date': date},
+            type: 'POST'
+          }).done(function(response){
+            console.log(response);
+          });
+        }
+        function savedate6 () {
+          $.ajax({
+            url: '/update_date6/{{cliente.id}}/',
+            data: {'date': date},
+            type: 'POST'
+          }).done(function(response){
+            console.log(response);
+          });
+        }
+        function savedate7 () {
+          $.ajax({
+            url: '/update_date7/{{cliente.id}}/',
+            data: {'date': date},
+            type: 'POST'
+          }).done(function(response){
+            console.log(response);
+          });
+        }
+
+  
+
+      
+</script>
+{% endblock content %}

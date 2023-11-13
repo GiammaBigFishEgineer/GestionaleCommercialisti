@@ -1,0 +1,283 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestionale Solomon</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/db6ff0c9b0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+
+  <body class="bg-light text-dark">
+
+    
+<div class="container" id="container">
+    <h1>MANDATO PROFESSIONALE</h1>
+    <h5>{{cliente.mandato_professionale}}</h5>
+    <h2>Art. 2 - Oggetto dell'incarico</h2>
+    Il Cliente affida al Professionista lo svolgimento delle attività
+    professionali selezionate fra quelle di seguito elencate:
+    <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th class="bg-light" scope="row"></th>
+            <td><h5>Redazione della contabiità;</h5></td>
+          </tr>
+          <tr>
+            <th class="bg-light" scope="row"></th>
+            <td><h5>Predisposizione ed invio della dichiarazione dei redditi;</h5></td>
+          </tr>
+          <tr>
+            <th class="bg-light" scope="row"></th>
+            <td><h5>Predisposizione ed invio della dichiarazione IRAP;</h5></td>
+          </tr>
+          <tr>
+            <th class="bg-light" scope="row"></th>
+            <td><h5>Predisposizione ed invio della dichiarazione IVA</h5></td>
+          </tr>
+          <tr>
+            <th class="bg-light" scope="row"></th>
+            <td><h5>Predisposizione ed invio della dichiarazione dei sostituti d'imposta;</h5></td>
+          </tr>
+          <tr>
+            <th class="bg-light" scope="row"></th>
+            <td><h5>Predisposizione e deposito presso il Registro delle Imprese del bilancio di esercizio;</h5></td>
+          </tr>
+          <tr>
+            <th class="bg-light" scope="row"></th>
+            <td><h5>Consulenza fiscale ed amministrativa relativa alla redazione della contabilità;</h5></td>
+          </tr>
+        </tbody>
+      </table>	
+      <h5>Dette attività, non comprendono la scritturazione delle fatture, le consulenze contrattuali e/o societarie, la difesa avanti Enti, Amministrazioni e Commissioni Tributarie e, in ogni caso, ogni attività non espressamente menzionata.</h5>	
+      		<h2>Art. 3 - Durata del Mandato e recesso.</h2>
+            <h5>La durata del contratto è stabilita in anni [uno].								
+                In mancanza di comunicazione scritta, da inviare a mezzo raccomandata A/r almeno 60 (sessanta) giorni prima della scadenza, il contratto si rinnoverà tacitamente, alle medesime condizioni, di [un] anno in [un] anno. 								
+                Il Cliente ha libera facoltà di recesso, da esercitarsi con preavviso di 60 (sessanta) giorni, il previo versamento [dei compensi pattuiti per l’annualità in corso/due dodicesimi del compenso pattuito per l’anno in corso] entro 15 (quindici) giorni dall’intervenuta comunicazione.								</h5>				
+
+            <h2>Art. 4 - Dichiarazioni del cliente.</h2>
+            <h5> Il Cliente dichiara:								
+                <br>a)	di avere ricevuto l’informativa di cui all’art. 13 del d.lgs. n. 196/2013 e dell’art. 13 e 14 del Regolamento UE n. 2016/679 del 27/4/2016 e di acconsentire al trattamento dei dati personali ad opera del Professionista, dei suoi collaboratori, sostituti e domiciliatari;							
+                <br><br>b)	di impegnarsi a fornire al Professionista i documenti e le informazioni necessari per lo svolgimento dell’incarico. In particolare, il Cliente si impegna a consegnare col necessario preavviso, la documentazione necessaria all’espletamento dell’incarico, prendendo atto che la legge prevede termini e scadenze obbligatori per gli adempimenti richiesti in esecuzione del presente mandato e che il Professionista declina ogni responsabilità per mancata o tardiva esecuzione del mandato dovuta al ritardo, incuria o inerzia da parte del Cliente nella tenuta della documentazione stessa; 							
+                <br><br>c)	di essere stato informato dal Professionista del grado di complessità della prestazione;							
+                <br><br>d)	di essere stato informato dal Professionista dei costi prevedibili;							
+                <br><br>e)	di essere stato informato dal Professionista di ogni circostanza concernente l’incarico conferito, prevedibile al momento della stipulazione del presente contratto;							
+                <br> <br>f)	di essere consapevole del fatto che il Professionista non può garantire il conseguimento del risultato voluto e di acconsentire al pagamento delle prestazioni a prescindere dal buon esito.							</h5>
+            
+            <h2>Art. 5 - Modalità svolgimento incarico.</h2>
+            <h5>Il Professionista impegna a svolgere l’incarico con la diligenza dovuta e ad informare il Cliente circa le prestazioni svolte. Quanto all’eventuale verificarsi di circostanze non prevedibili al momento della stipulazione del presente contratto, che possano determinare un aumento di costi, si richiama l’art. 7.</h5>
+
+            <h2>Art. 6 - Dipendenti e collaboratori del Professionista</h2>
+            <h5>Le parti convengono che il Professionista possa avvalersi, sotto la propria responsabilità, di sostituti e collaboratori per lo svolgimento della prestazione.
+                Il Professionista si impegna ad informare il Cliente dell’opportunità della nomina di consulenti per l’espletamento dell’incarico.</h5>
+
+            <h2>Art. 7 - Obblighi del Cliente.</h2>
+            <h5>Il Cliente ha l'obbligo di far pervenire tempestivamente presso lo studio del Professionista la documentazione necessaria all’espletamento dell’incarico. A tal fine, il Professionista dichiara ed il Cliente prende atto che la legge prevede termini e scadenze obbligatori per gli adempimenti connessi alla prestazione professionale richiesta ed oggetto del presente mandato.  La consegna della documentazione occorrente alla prestazione non sarà oggetto di sollecito o ritiro da parte del Professionista, che, pertanto, declina ogni responsabilità per mancata o tardiva esecuzione del mandato dovuta al ritardo, incuria o inerzia da parte del Cliente. Il cliente esonera esplicitamente da ogni responsabilità il Professionista anche nel caso di inesattezza, incompletezza o non veridicità dei dati e/o dei documenti consegnati al Professionista stesso.<br>	
+                Il Cliente deve collaborare con il Professionista ai fini dell'esecuzione del presente incarico consentendo allo stesso ogni attività di accesso e controllo dei dati necessari per l'espletamento del mandato.<br>
+                Il Cliente ha l'obbligo di informare tempestivamente il Professionista su qualsivoglia variazione che abbia inerenza all'incarico conferito mediante atti scritti.<br></h5>
+            
+                <h2>Art. 8 - Compensi</h2>
+                <h5>Il costo della prestazione annuale è determinata come nell’ Allegato "A" in considerazione degli incombenti e dei costi attualmente imposti dalla normativa in vigore, al netto di spese, anticipazioni e rimborsi chilometrici per trasferte e/o incontri (parametri ACI). 		<br>						
+                    Eventuali prestazioni non ricomprese nell’oggetto del presente contratto, saranno fatturate al costo orario indicato nell'allegato "A". <br>								
+                    I compensi saranno fatturati con periodicità [mensile] e il rispettivo pagamento dovrà avvenire entro 30 (trenta) giorni dalla presentazione del preavviso di fattura. 	<br>	<br>		<br><br>				
+                    In caso di mancato pagamento protratto per ulteriori 15 (quindici) giorni rispetto alla precedente scadenza, il Professionista potrà sospendere l’esecuzione delle successive prestazioni, previo avviso.</h5>
+                <br><br><br>
+                <h2>Art. 9 - Copertura assicuartiva ed esoneri da responsaiblità professionale</h2>
+                <h5>Il Professionista informa il Cliente di aver in corso la seguente polizza di responsabilità civile professionale:</h5>
+                <table class="table table-bordered w-50">
+                    <tbody>
+                      <tr>
+                        <th scope="row"><h5>Compagnia assicurazione</h5></th>
+                        <td><h5>{{cliente.compagnia_assicurazione}}</h5></td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row"><h5>Numero polizza</h5></th>
+                        <td><h5>{{cliente.numero_polizza}}</h5></td>
+                        
+                      </tr>
+                      <tr>
+                        <th scope="row"><h5>Massimale di copertura</h5></th>
+                        <td colspan="2"><h5>{{cliente.massimale_copertura}}</h5></td>
+                        
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h5>Il Cliente esonera il Professionista, ai sensi dell’art. 1229 cod. civ., da ogni responsabilità che non derivi da ipotesi di dolo o colpa grave.</h5>
+                  <h5>Il Cliente esonera il Professionista da ogni responsabilità derivante da eventuali inesattezze, incompletezze o mendacità di informazioni, dati e/o documenti raccolti e/o trasmessi all’Amministrazione Finanziaria.</h5>
+                  <h2>Art. 10 - Antiriciclaggio</h2>
+                  <h5>In attuazione di quanto previsto dal D.Lgs. 21/11/2007, n. 231 il Professionista dichiara di aver adempiuto agli obblighi di legge sull’adeguata verifica della clientela in materia di antiriciclaggio e di finanziamento al terrorismo.</h5>
+                  <h2>Art. 11 - Privacy</h2>
+                  <h5>Il Professionista informa il Cliente che tutti i dati e documenti che verranno forniti saranno utilizzati solamente per lo svolgimento dell'incarico professionale ricevuto.								
+                    In particolare il cliente attesta di essere stato informato circa:								
+                    <br><br>>	le finalità e le modalità del trattamento cui sono destinati i dati;							
+                    <br><br>>	la natura obbligatoria o facoltativa del conferimento dei dati;							
+                    <br><br>>	le conseguenze di un eventuale rifiuto di rispondere;							
+                    <br><br>>	i soggetti o le categorie di soggetti ai quali i dati possono essere comunicati e l’ambito di diffusione dei dati medesimi;							
+                    <br><br>>	i diritti dell'interessato circa l'opposizione e la revoca del trattamento;							
+                    <br><br>>	i dati dell'eventuale Responsabile al trattamento dei dati.							</h5>
+                    
+                    <h2>Art. 13 - Risoluzione controversie.</h2>
+                    <h5> Le parti convengono che ogni controversia che dovesse insorgere in relazione al presente contratto, comprese quelle relative alla sua validità, interpretazione, esecuzione e risoluzione, e degli atti che ne costituiscono emanazione, compresa ogni ragione di danni, potrà essere sottoposta, in via preventiva, alla Procedura di Conciliazione da parte del seguente Organismo di conciliazione MEDILAPET.</h5>
+                    <h2>Art. 14 - Elezione di comicilio.</h2>
+                    <h5>La parti eleggono domicilio presso l'indirizzo sopra esposto.</h5>
+                    <h2>Art. 15 - Rinvio</h2>
+                    <h5>Per quanto non espressamente previsto dalla presente lettera di incarico, si fa esplicito rimando alle norme del Codice Civile che disciplinano il lavoro autonomo (art. 2229 e seguenti), alle altre norme anche speciali vigenti in materia, agli obblighi deontologici ed agli usi locali.</h5>
+                    <h5>Quanto  sopra, è letto dalle  parti, approvato in  ogni suo articolo  e  viene sottoscritto in</h5>
+                    <h5>Forlì, lì {{cliente.date1}}</h5>
+                    <div class="d-flex">
+                        <div class="mx-auto w-25">
+                        <h5>Il Cliente</h5><br><br><hr>
+                        </div>
+                        <div class="mx-auto w-25">
+                            <h5>Il Professionista</h5><br><br><hr>
+                            </div>
+                    </div>
+
+                    <h5>Ai sensi e per gli effetti degli articoli 1341 e 1342 cod civ si accettano espressamente gli articoli: 2) oggetto; 4) dichiarazioni del cliente; durata e recesso; 8) compensi; 8) esonero responsabilità; 14) risoluzioni controversie.</h5>
+                    <div class="d-flex">
+                        <div class="mx-auto w-25">
+                        <h5>Il Cliente</h5><br><br><hr><br><br><hr>
+                        </div>
+                        <div class="mx-auto w-25">
+                            <h5>Il Professionista</h5><br><br><hr><br><br><hr>
+                            </div>
+                    </div>
+                    
+
+                    <h5>Allegato "A" - Compensi</h5>
+                    <h5>Per i servizi descritti all’art. 2 viene concordato un compenso annuo così determinato:</h5>
+                    <table class="table table-bordered w-75">
+                        <tbody>
+                          <tr>
+                            <th><h5>Redazione e deposito del bilancio al Registro Imprese</h5></th>
+                            <td><h5>Euro</td>
+                            <td></td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row"><h5>Redazione ed invio telematico della comunicazione e dichiarazioni IVA</h5></th>
+                            <td><h5>Euro</h5></td>
+                            <td></td>
+                            
+                          </tr>
+                          <tr>
+                            <th scope="row"><h5>Redazione ed invio telematico delle dichiarazioni dei redditi</h5></th>
+                            <td><h5>Euro</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><h5>Consulenza fiscale ed amministrativa</th>
+                            <td><h5>Euro</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <th scope="row"><h5>Redazione ed invio delle dichiarazioni dei soci</h5></th>
+                            <td><h5>Euro</h5></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <h5>I compensi sopra descritti sono al netto di eventuali spese o anticipazioni che dovesse sostenere il Professionista.	<br>
+                        Per le prestazioni extra contrattuali rese presso la sede del Professionista la quantificazione sarà di euro 70,00 per ora o frazione d'ora.	<br>				
+                        Nel caso venisse richiesto l’intervento fuori dalla sede dello Studio il conteggio orario inizierà dalla partenza dallo Studio e terminerà al rientro.		<br>			
+                        Sarà dovuto il rimborso chilometro da calcolare con riferimento alle tariffe ACI dell'anno per l'attiivtà professionale svolta fuori dalla sede dello Studio.<br>						
+                        <br><br><br><br><br><br>
+                        Gli importi sopra evidenziati hanno validità annuale, salvo quanto appresso specificato.								<br><br>
+                        Le competenze saranno oggetto di modifica sia a seguito di modifiche normative che comportino nuovi e maggiori oneri a carico dello Studio, sia per prestazioni professionali maggiori o minori che fossero richieste del Cliente, sia per effetto della svalutazione monetaria.</h5>
+
+                        <h5>Il cliente dichiara di aver preso visione dei compensi sopra descritti.</h5>
+
+                        <h5>Forlì, lì {{cliente.data_inizio}}</h5>
+
+                    <div class="d-flex mb-5">
+                        <div class="mx-auto w-25">
+                        <h5>Il Cliente</h5><br><br><hr>
+                        </div>
+                        <div class="mx-auto w-25">
+                            <h5>Il Professionista</h5><br><br><hr>
+                            </div>
+                    </div>
+
+                </div>
+    <script>
+        var mapObj = {
+            _nome:"{{cliente.nome}}",
+            _capo:"<br>",
+            _cognome:"{{cliente.cognome}}",
+            _ragione_sociale:"{{cliente.ragione_sociale}}",
+            _indirizzo:"{{cliente.indirizzo}}",
+            _città:"{{cliente.city}}",
+            _codice_fiscale:"{{cliente.codice_fiscale}}",
+            _partita_iva:"{{cliente.partita_iva}}",
+            _natura_giuridica:"{{cliente.natura_giuridica}}",
+            _data_costituzione:"{{cliente.data_costituzione}}",
+            _luogo_nascita:"{{cliente.luogo_nascita}}",
+            _data_nascita:"{{cliente.data_nascita}}",
+            _comune:"{{cliente.comune}}",
+            _tipo_documento:"{{cliente.tipo_documento}}",
+            _data_rilascio:"{{cliente.data_rilascio}}",
+            _autorità:"{{cliente.autorità}}",
+            _numero:"{{cliente.numero}}",
+            _studio:"{{cliente.studio}}",
+            _rappresentati:"{{cliente.legale_rappresentate.all|join:', '}}",
+         };
+
+        let str = document.getElementById("container").innerHTML; 
+        let res = str = str.replace(/_nome|_cognome|_ragione_sociale|_capo|_rappresentati|_città|_indirizzo|_codice_fiscale|_partita_iva|_natura_giuridica|_data_costituzione|_luogo_nascita|_data_nascita|_comune|_tipo_documento|_data_rilascio|_autorità|_numero|_studio/gi, function(matched){
+            return mapObj[matched];
+          });
+        
+        document.getElementById("container").innerHTML = res;
+
+        
+        
+        window.onload = function CreatePDFfromHTML() {
+            var HTML_Width = $("body").width();
+            var HTML_Height = $("body").height();
+            var top_left_margin = 15;
+            var PDF_Width = HTML_Width + (top_left_margin * 2);
+            var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+            var canvas_image_width = HTML_Width;
+            var canvas_image_height = HTML_Height;
+        
+            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+        
+            html2canvas($("body")[0]).then(function (canvas) {
+                var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+                pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+                for (var i = 1; i <= totalPDFPages; i++) { 
+                    pdf.addPage(PDF_Width, PDF_Height);
+                    pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+                }
+                pdf.save("Your_PDF_Name.pdf");
+               // $("body").hide();
+            });
+        };
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+

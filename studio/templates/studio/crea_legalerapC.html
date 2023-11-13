@@ -1,0 +1,57 @@
+{% extends 'studio/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<section style="color:#fff;padding:50px;" id="modifica_cliente">
+
+    <h2 class="mb-3">Registra un nuovo Legale Rappresentate per {{cliente}}</h2>
+    <form method="post">
+        {% csrf_token %}
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">Nome e Cognome</span>
+        {{form.nome}}
+        {{form.cognome}}
+      </div>
+  
+      <div class="input-group mb-3">
+        <span class="input-group-text">Luogo Nascita</span>
+        {{form.luogo_nascita}}
+        <span class="input-group-text">Data Nascita</span>
+        {{form.data_nascita}}
+      </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon3">Indirizzo</span>
+    {{form.indirizzo}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Città</span>
+    {{form.city}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Codice Fiscale</span>
+    {{form.codice_fiscale}}
+  </div>
+
+  <button type="submit" class="btn btn-primary mb-3">Registra</button>
+  {% if form.errors %}
+  <div class="alert alert-danger">
+    <h4>{{form.errors}}</h4>
+  </div>
+  {% endif %}
+</form>
+</section>
+
+<script>
+ 
+        var cols = document.getElementsByTagName("input");
+        for(i = 0; i < cols.length; i++) {
+          cols[i].className = 'form-control';
+        }
+        document.getElementById('id_studio').className = 'form-select';
+      
+</script>
+{% endblock content %}

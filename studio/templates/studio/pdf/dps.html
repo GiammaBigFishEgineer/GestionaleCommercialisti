@@ -1,0 +1,269 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestionale Solomon</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/db6ff0c9b0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+
+  <body class="bg-light text-dark">
+
+    
+<div class="container" id="container">
+    <h1>ANALISI E VALUTAZIONE DEI RISCHI E SOLUZIONI OPERATIVE IN MATERIA DI PRIVACY</h1>
+    <h5>(Regolamento UE n. 2016/679, del 27/4/2016)</h5>
+    <h5>{{cliente.dps}}</h5>
+    <h5>ANALISI DEI RISCHI CHE INCOMBONO SUI DATI E MISURE IN ESSERE</h5>
+<h5> L’analisi dei possibili rischi che gravano sui dati è stata effettuata in relazione alla causa che può generare il rischio e quindi classificati in:</h5>
+   <li><h5> - rischi legati ai comportamenti degli Incaricati del trattamento dei dati;</h5></li>
+   <li><h5> - rischi legati agli strumenti utilizzati per il trattamento dei dati;</h5></li>
+    <li><h5> - rischi legati al contesto ambientale in cui avviene il trattamento dei dati.		</h5></li>						
+<h5>Nella tabelle seguenti, per ogni tipologia di rischio, si indicano gli eventi che potrebbero verificarsi e quindi mettere a rischio l’integrità dei dati trattati. Si evidenzia, inoltre, la gravità di ogni rischio.</h5>
+<h5>Comportamenti degli Incaricati al trattamento dei dati
+</h5>
+<table class="table table-bordered mb-4">
+    <thead>
+      <tr>
+        <th scope="col"><h5>Rischio</h5></th>
+        <th scope="col"><h5>Descrizione dell'impatto sulla sicurezza</h5></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><h5>Perdita del lavoro in fase di esecuzione</h5></th>
+        <td><h5></h5></td>
+      </tr>
+      <tr>
+        <th scope="row"><h5>Cancellazione di dati importanti dai supporti di memorizzazione</h5></th>
+        <td><h5></h5></td>
+      </tr>
+      <tr>
+        <th scope="row"><h5>Danneggiamento delle apparecchiature</h5></th>
+        <td><h5></h5></td>
+      </tr>
+      <tr>
+        <th scope="row"><h5>Sottrazione o perdita delle password o chiavi degli armadi o classificatori</h5></th>
+        <td><h5></h5></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+  <h5>L'analisi appena descritta è stata effettuata in quanto può accadere che in fase di lavoro avvenga la perdita di dati per disattenzioni o simili. Il livello appare basso in quanto:</h5>
+<li><h5>il personale incaricato dispone di tutte le conoscenze necessarie al trattamento dei dati;</h5></li>
+<li><h5>il personale incaricato dispone di buone conoscenze degli strumenti informatici utilizzati;							</h5></li>
+<li><h5>ogni postazione di lavoro dispone di una password personale dell’utente. L'incaricato è stato istruito sulle modalità di creazione di una password complessa;							</h5></li>
+<li><h5>tutti i dati inseriti sono ricostruibili mediante le copie di back-up che vengono effettuate giornalmente/settimanalmente.							</h5></li>
+<br><br><br><br><br>
+<h5>Comportamenti degli Incaricati al trattamento dei dati
+</h5>
+<table class="table table-bordered mb-4">
+    <thead>
+      <tr>
+        <th scope="col"><h5>Rischio</h5></th>
+        <th scope="col"><h5>Descrizione dell'impatto sulla sicurezza</h5></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><h5>Accessi esterni non autorizzati	</h5></th>
+        <td><h5></h5></td>
+      </tr>
+      <tr>
+        <th scope="row"><h5>Presenza di virus informatici o programmi che possono arrecare danno</h5></th>
+        <td><h5></h5></td>
+      </tr>
+      <tr>
+        <th scope="row"><h5>Spamming o tecniche di sabotaggio</h5></th>
+        <td <h5>colspan="2"></h5></td>
+      </tr>
+      <tr>
+        <th scope="row"><h5>Malfunzionamento, indisponibilità, guasti o degrado degli strumenti</h5></th>
+        <td <h5>colspan="2"></h5></td>
+      </tr>
+      <tr>
+        <th scope="row"><h5>Sottrazione di dati da parte degli incaricati</h5></th>
+        <td <h5>colspan="2"></h5></td>
+      </tr>
+    </tbody>
+  </table>
+
+<h5>L'analisi appena descritta è stata effettuata in quanto  può accadere che durante la navigazione in rete ci possano essere infiltrazioni di virus informatici o malfunzionamento degli strumenti. Il livello appare basso in quanto:</h5>
+<li><h5>i personal computer si trovano all’interno di una rete protetta da firewall;</h5></li>
+<li><h5>tutti i personal computer sono dotati di antivirus aggiornato periodicamente o aggiornato automaticamente;</h5></li>
+<li><h5>non si sono finora mai registrati guasti o malfunzionamenti rilevanti all’interno dello Studio;</h5></li>
+<li><h5>tutti i personal computer sono collegati ad un gruppo di continuità che garantisce l'operatività dei personal computer per il tempo sufficiente alla chiusura di tutti i processi e programmi aperti e lo spegnimento degli stessi. I dati trattati sono conservati sul server che in caso di mancanza di corrente viene automaticamente spento dal gruppo di continuità stesso prima del totale esaurimento della batteria del gruppo stesso. Agli incaricati al trattamento sono state impartite istruzioni volte anche allo spegnimento della stazione di lavoro al termine della giornata lavorativa ed ogni qualvolta la postazione rimanesse incustodita per oltre un'ora.							</h5></li>
+
+<br>
+<h5>Inoltre, i rischi appena analizzati, oltre che al rischio di danneggiamento per eventi atmosferici,  risultano essere di basso impatto in quanto:</h5>
+<li><h5>il locale archivio è accessibile solo previo prelievo delle chiavi di chiusura dello stesso contenute nell'apposita custodia;							</h5></li>
+<li><h5>il locale archivio è dotato di scaffalature rialzate per evitare il pericolo di allagamenti;							</h5></li>
+<li><h5>tutti i personal computer sono rialzati da terra al fine di evitare contatti immediati con l'acqua e per la riduzione dell'introduzione di polveri nello stesso;							</h5></li>
+<li><h5>periodicamente si procede alla rimozione delle polveri all'interno dei personal compute, tramite ditta specializzata di assistenza hardware;							</h5></li>
+<li><h5>il personale addetto alla pulizia dei locali è stato informato della modalità di accesso e di esecuzione dei lavori nei locali mediante apposito contratto; detto personale è l’unico autorizzato all’accesso al di fuori dell’orario di lavoro; al personale stesso sono state fornite le chiavi di accesso ai locali, ma non è stata loro reso noto il luogo di conservazione delle chiavi degli armadi e mobili in genere dove sono conservati i documenti; all’impresa di pulizie viene inoltre richiesta la massima cautela nella selezione del personale da inviare presso la sede del trattamento dei dati;							</h5></li>
+<li><h5>gli inquilini del condominio non hanno in alcun modo accesso ai locali;						</h5>	</li>
+<li><h5>tutto il materiale cartaceo, al termine della giornata lavorativa, viene riposto negli armadi o classificatori e chiusi a chiave;							</h5></li>
+<li><h5>la struttura dispone di estintori antincendio;							</h5></li>
+<li><h5>l'accesso alla struttura è protetto da porte blindate con serratura antiscasso e le finestre da inferriate;							</h5></li>
+<li><h5>la struttura è dotata di impianto di allarme.							</h5></li>
+<br>
+<h5>CRITERI E PROCEDURE PER IL RIPRISTINO DELLA DISPONIBILITÀ DEI DATI</h5>
+<h5>Sono previste delle procedure di salvataggio dei dati grazie alle quali si può procedere al ripristino in caso di perdita o danneggiamento degli stessi in tempi brevi.</h5>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"><h5>Banca / data base / archivio di dati	</h5></th>
+        <th scope="col"><h5>Criteri e procedure per il salvataggio e il ripristino dei dati			</h5></th>
+        <th scope="col"><h5>Pianificazione delle prove di ripristino		</h5></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><h5>Banca dati del server	</h5></th>
+        <td><h5>Back-up giornaliero			</h5></td>
+        <td><h5>A cura del Titolare del Trattamento		</h5></td>
+    
+      </tr>
+      <tr>
+        <th scope="row"><h5>Archivi dati in ogni personal computer	</h5></th>
+        <td><h5>Back-up periodico			</h5></td>
+        <td><h5>A cura del Titolare del Trattamento		</h5></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col"><h5>Banca / data base / archivio di dati	</h5></th>
+        <th scope="col"><h5>Criteri e procedure per il salvataggio		</h5></th>
+        <th scope="col"><h5>Luogo di custodia delle copie di sicurezza	</h5></th>
+        <th scope="col"><h5>Persona incaricata del salvataggio	</h5></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><h5>Banca dati del server	</h5></th>
+        <td><h5>Back-up giornaliero		</h5></td>
+        <td><h5>Le copie vengono custodite nella cassaforte	</h5></td>
+        <td><h5>@A cura del Titolare del Trattamento	</h5></td>
+      </tr>
+      <tr>
+        <th scope="row"><h5>Archivi dati in ogni personal computer	</h5></th>
+        <td><h5>Back-up periodico		</h5></td>
+        <td><h5>Le copie vengono custodite nella cassaforte	</h5></td>
+        <td><h5>@A cura del Titolare del Trattamento	</h5></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5>PIANIFICAZIONE DEGLI INTERVENTI FORMATIVI PREVISTI</h5>
+  <h5>In ossequio al disposto normativo di cui al Regolamento UE n. 2016/679 del 27/4/2016, il Titolare del Trattamento promuove e programma periodiche attività di formazione e di aggiornamento per gli incaricati del trattamento dei dati personali avvalendosi di figure professionali interne od esterne. Il piano formativo viene programmato ogni qualvolta si renda necessario sia per un ripasso delle regole previste che a seguto di modifiche normative interventue ed in tutti i casi di aggiornamento degli strumenti informatici.</h5>
+  <h5>Ad ogni nuovo incaricato del trattamento dei dati professionali vengono fornite tutte le istruzioni per un corretto trattamento dei dati personali e sensibili.
+    Al momento dell’assegnazione di un personal computer vengono assegnate le credenziali di autenticazione ed eventualmente armadi o quanto altro utile per una corretta conservazione dei dati.
+    Saranno illustrate le tecniche e le procedure già in essere presso lo Studio per un corretto trattamento dei dati.</h5>
+    <h5>Al nuovo incaricato del trattamento dei dati viene fatta conoscere la struttura e le modalità di accesso agli archivi.</h5>
+   <br>
+    <h5>CONCLUSIONI</h5>
+    <h5>Il titolare del Trattamento ha impostato un sistema efficiente di sicurezza delle informazioni atto a ridurre le probabilità che si verifichino danni di qualsiasi tipo ai dati trattati.</h5>
+<h5>Il Titolare del Trattamento, attraverso la valutazione dei rischi, si propone di far fronte ad ogni minaccia ai propri dati con le misure di sicurezze più adeguate, stanziando quando e dove richiesto, risorse per la miglioria dei propri strumenti elettronici e di tutti i beni (armadi, cassettiere, ecc) prepposti alla protezione dei dati.</h5><br>
+<h5>Il Titolare del Trattamento, oltre ad  un’attività formativa del personale dipendente e dei collaboratori esegue continui controlli sugli stessi affiché svolgano le rispettive mansioni nel rispetto delle norme e delle direttive emanate dal Titolare stesso.
+La presenta analisi e valutazione dei rischi connessi al trattamento dei dati è stata effettuata al fine della verifica che la struttura rispetti le previsioni del Regolamento UE n. 2016/679 più volte citato.</h5>
+
+<h5>{{cliente.studio.city}}, lì {{cliente.data_inizio}}</h5>
+<h5>Titolare del trattamento</h5>
+
+<br><hr class="w-25"><br>
+
+
+
+
+</div>
+
+    <script>
+        var mapObj = {
+            _nome:"{{cliente.nome}}",
+            _cognome:"{{cliente.cognome}}",
+            _ragione_sociale:"{{cliente.ragione_sociale}}",
+            _capo:"<br>",
+            _data_costituzione:"{{cliente.data_costituzione}}",
+            _indirizzo:"{{cliente.indirizzo}}",
+            _città:"{{cliente.city}}",
+            _codice_fiscale:"{{cliente.codice_fiscale}}",
+            _partita_iva:"{{cliente.partita_iva}}",
+            _natura_giuridica:"{{cliente.natura_giuridica}}",
+            _data_costituzione:"{{cliente.data_costituzione}}",
+            _luogo_nascita:"{{cliente.luogo_nascita}}",
+            _data_nascita:"{{cliente.data_nascita}}",
+            _comune:"{{cliente.comune}}",
+            _tipo_documento:"{{cliente.tipo_documento}}",
+            _data_rilascio:"{{cliente.data_rilascio}}",
+            _autorità:"{{cliente.autorità}}",
+            _numero:"{{cliente.numero}}",
+            _studio_denominazione:"{{cliente.studio}}",
+            _studio_indirizzo :"{{cliente.studio.indirizzo}}",
+            _studio_città :"{{cliente.studio.city}}",
+            _studio_telefono :"{{cliente.studio.telefono}}",
+            _studio_email : "{{cliente.studio.email}}",
+            _studio_codice_fiscale : "{{cliente.studio.codice_fiscale}}",
+         };
+         
+         let str = document.getElementById("container").innerHTML; 
+         let res = str = str.replace(/_nome|_cognome|_data_costituzione|_ragione_sociale|_capo|_città|_indirizzo|_codice_fiscale|_partita_iva|_natura_giuridica|_data_costituzione|_luogo_nascita|_data_nascita|_comune|_tipo_documento|_data_rilascio|_autorità|_numero|_studio_denominazione|_studio_email|_studio_telefono|_studio_città|_studio_indirizzo|_studio_codice_fiscale/gi, function(matched){
+             return mapObj[matched];
+           });
+         
+        document.getElementById("container").innerHTML = res;
+
+        
+        window.onload = function CreatePDFfromHTML() {
+          var HTML_Width = $("body").width();
+          var HTML_Height = $("body").height();
+          var top_left_margin = 15;
+          var PDF_Width = HTML_Width + (top_left_margin * 2);
+          var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+          var canvas_image_width = HTML_Width;
+          var canvas_image_height = HTML_Height;
+      
+          var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+      
+          html2canvas($("body")[0]).then(function (canvas) {
+              var imgData = canvas.toDataURL("image/jpeg", 1.0);
+              var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+              pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+              for (var i = 1; i <= totalPDFPages; i++) { 
+                  pdf.addPage(PDF_Width, PDF_Height);
+                  pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+              }
+              pdf.save("Your_PDF_Name.pdf");
+             // $("body").hide();
+          });
+      };
+    </script>
+
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+

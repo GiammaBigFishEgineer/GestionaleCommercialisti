@@ -1,0 +1,267 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestionale Solomon</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/db6ff0c9b0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  </head>
+
+  <body class="bg-light text-dark">
+
+    
+<div class="container" id="container">
+    <h1>Informativa e consenso</h1>
+    <h5>{{cliente.scheda_idi}}</h5>
+    <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row"><h5>Titolare del trattamento:</h5></th>
+            <td><h5>{{cliente.studio.denominazione}}</h5></td>
+          </tr>
+          <tr>
+            <th scope="row">Sede</th>
+            <td><h5>{{cliente.studio.indirizzo}} - {{cliente.studio.city}}</h5></td>
+          </tr>
+          <tr>
+            <th scope="row"><h5>Codice Fiscale</h5></th>
+            <td colspan="2"><h5>{{cliente.studio.codice_fiscale}}</h5></td>
+          </tr>
+          <tr>
+            <th scope="row"><h5>Telefono</h5></th>
+            <td colspan="2"><h5>{{cliente.studio.telefono}}</h5></td>
+          </tr>
+          <tr>
+            <th scope="row"><h5>Fax</h5></th>
+            <td colspan="2"><h5>{{cliente.studio.fax}}</h5></td>
+          </tr>
+          <tr>
+          <th scope="row"><h5>Email</h5></th>
+          <td colspan="2"><h5>{{cliente.studio.email}}</h5></td>
+          </tr>
+
+          <tr>
+            <th scope="row"><h5>Finalità e modalità del trattamento:</h5></th>
+            <td colspan="2"><h5>i dati personali forniti sono necessari ai fini della conclusione e della gestione
+                del rapporto di incarico professionale, per gli adempimenti di Legge previsti
+                per lo svolgimento dell'attività
+                di consulenza fiscale, amministrativa,societaria e contrattuale. In particolare i dati forniti verranno utilizzati per la
+                redazione della contaiblità e delle dichiarazioni fiscali. Inoltre i medesimi
+                potranno
+                essere forniti,
+                solo
+                cu
+                esplicita
+                e
+                formale richiesta,
+                all'Amministrazione finanziaria competente ed agli eventuali organi deputati
+                alle verifiche fiscali ed amministrative.</h5></td>
+            </tr>
+            <tr>
+                <th scope="row"><h5>Responsabile della Protezione dei
+                    dati (RPD):</h5></th>
+                <td colspan="2"><h5>(dal momento che i dati personali e/o sensibili non vengono trattati in modalità
+                    massiva, ma esclusivamente per i fini appena descritti, non occorre l'obbligo
+                    di nomina del "Responsabile alla protezione dei dati". Pertanto l'interessato
+                    dovrà rivolgere ogni sua istanza al "Titolare del Trattamento".</h5></td>
+                </tr>
+                <tr>
+                    <th scope="row"><h5>Obbligo del conferimento dei dati
+                        e conseguenze di un eventuale
+                        rifiuto a fornirli:</h5></th>
+                    <td colspan="2"><h5>la fornitura dei dati personali o sensibili risulta essere necessaria per lo
+                        svolgimento dell'incarico di redazione della contabilità, compilazione
+                        ed
+                        invio agli organi competenti delle dichiarazioni fiscali. Qualora non fossero
+                        forniti i dati richiesti, lo Studio potrebbe essere impossibilitato ad adempiere
+                        alle obbligazioni contrattuali.</h5></td>
+                </tr>
+                <tr>
+                    <th scope="row"><h5>Destinatari dei dati personali:</h5></th>
+                    <td colspan="2"><h5>i dati trattati, sia personali che sensibili, verranno utilizzati per la redazione della contabilità e/o per la compilazione delle dichiarazioni fiscali e/o per intercomunicare con l'Interessato o con gli organi della Pubblica Amministrazione. Pertanto i medesimi dati saranno utilizzati, come da disposizioni normative, nei rapporti con gli Uffici preposti per legge al loro ricevimento. Inoltre, i dati personali potrebbero essere utilizzati per circolarizzare informative, circolari o documentazione amministrativa, contaible o fiscale. I dati personali potranno essere comunicati anche agli Istituti di Credito, su richiesta o su autorizzazione dell'Interessato, per i loro fini istuzioali e operativi.</h5></td>
+                </tr>
+                <tr>
+                    <th scope="row"><h5>Trasferimento di dati in Paesi terzi:</h5>	</th>
+                    <td colspan="2"><h5>il trattamento dei dati potrebbe richiedere e comportare il trasferimento dei dati personali o sensibili in Paesi terzi.					</h5></td>
+                </tr>
+                <tr>
+                    <th scope="row"><h5>Periodo di conservazione dei dati:</h5>	</th>
+                    <td colspan="2"><h5>i dati personali o sensibili saranno conservati per il periodo obbligatorio determinato dalle varie normative di natura fiscale o amministrativa. 					</h5></td>
+                </tr>
+                <tr>
+                    <th scope="row"><h5>Accesso dell'interessato ai dati personali:	</h5></th>
+                    <td colspan="2"><h5>previa concorde individuazione del giorno e dell'orario, l'interessato potrà accedere ai propri dati personali in possesso del "Titolare del trattamento", con l'assistenza dello stesso o di un suo incaricato.					</h5></td>
+                </tr>
+                <tr>
+                    <th scope="row"><h5>Rettifica o cancellazione dei dati personali:	</h5></th>
+                    <td colspan="2"><h5>l'Interessato potrà richiedere la rettifica o la cancellazione dei dati personali o sensibili conformemente alla tecnologia ed ai mezzi a disposizione del Titolare del trattamento. Effettuata la cancellazione, l'interessato non potrà più richiedere al "Titolare del trattamento" la fornitura di eventuali stampe o copie dei medesimi. Nel caso di rettifica dei dati, l'interessato non potrà più chiedere al "Titolare del trattamento" stampe o copie dei dati rettificati.					</h5></td>
+                </tr>
+                <tr>
+                    <th scope="row"><h5>Limitazione al trattamento:	</h5></th>
+                    <td colspan="2"><h5>l'Interessato potrà disporre la limitazione del trattamento dei dati. Conseguentemente, ciò potrebbe rideterminare l'incarico ricevuto dal Titolare del trattamento e limitare lo stesso all'uso dei dati per i quali l'Interessato non si sia opposto al trattamento. la limitazione del trattamente deve essere comunicata per iscritto.					</h5></td>
+                </tr>
+                <tr>
+                    <th scope="row"><h5>Opposizione al trattamento:	</h5>
+                    </th>
+                    <td colspan="2"><h5>l'eventuale opposizione al trattamento da parte dell'Interessato di alcuni o tutti i dati personali o sensibili comporta l'inevitabile rinuncia all'incarico ricevuto per impossibilità del suo svolgimento secondo i corretti principi deontologici e normativi.					</h5></td>
+                <td><h5>Nel caso l'Interessato comunichi al Titolare deTrattamento l'opposizione al trattemento stesso, esso avrà effetto solo a decorrere dalla notifica dell'opposizione stessa.					</h5></td>
+                </tr>
+        </tbody>
+      </table>
+      <br><br><br><br>
+      <table class="table table-bordered">
+        <tbody>
+
+          <tr>
+            <th scope="row"><h5>Portabilità dei dati:	</h5></th>
+            <td colspan="2"><h5>i dati personali o sensibili potranno essere oggetto di trasferimento fra archivi, sia fisici che informatici, solo al fine di un puntuale svolgimento dell'incarico o per la maggiore tutela degli stessi.					</h5></td>
+        </tr>
+        <tr>
+            <th scope="row"><h5>Diritto al reclamo:	</h5></th>
+            <td colspan="2"><h5>l'Interessato che ritenesse violati i propri diritti di tutela dei dati personali o sensibili, dovrà segnalare tale situazione al Titolare del Trattamento in modo da ricevere le dovute spiegazioni e vedere la correzione del trattamento. Qualora il Titolare del Trattamento desistesse dal porre rimedio alla violazione, l'Interessato potrà segnalare le presunte irregolarità al Garante alla Privacy secondo le previsioni dallo stesso Garante impartite e reperibili sul sito internet www.garanteprivacy.it.					</h5></td>
+        </tr>
+        <tr>
+            <th scope="row"><h5>Conseguenze della mancata autorizzazione al trattamento dei dati personali:	</h5></th>
+            <td colspan="2"><h5>il Titolare del trattamento informa l'Interessato che la mancata autorizzazione al trattamento dei dati personali o sensibili può causare un non corretto svolgimento dell'incarico con la conseguente possibile applicazione di sanzioni da parte degli organi fiscali o amministrativi.					</h5></td>
+        </tr>
+        <tr>
+            <th scope="row"><h5>Processi decisionali automatizzati:	</h5></th>
+            <td colspan="2"><h5>essendo i dati personali utilizzati esclusivamente al fine di una corretta redazione della contabilità e di una corretta compilazione e trasmissione all'Anagrafe tributaria delle dichiarazioni fiscali oltre ad una puntuale applicazione di regimi fiscali, contabili o contributivi, si precisa che non saranno oggetto di processi decisionali automatizzati.					</h5></td>
+        </tr>
+        <tr>
+            <th scope="row"><h5>Incaricati al trattamento:	</h5></th>
+            <td colspan="2"><h5>i dati personali o sensibili dell'interessato verranno trattati, sotto il diretto controllo e la responsabilità del Titolare del trattamento, dai dipendenti e dai collaboratori del titolare stesso.					</h5></td>
+        </tr>      
+          <tbody>
+      </table>
+
+      <h5>Il Responsabile del trattamento dei dati personali dichiara, inoltre, che la struttura, l’organizzazione della stessa e gli strumenti elettronici sono a norma di legge ed in particolare rispettano le previsioni volte a contrastare la divulgazione o la dispersione dei dati stessi.							</h5>
+    <h5>Forlì, lì {{cliente.date2}}</h5>
+    <br>
+    <div class="w-25">
+    <h5>Il responsabile del trattamento</h5>
+    <br>
+    <hr>
+    </div>
+
+    <br>
+    <h5>L’interessato, alla luce di quanto sopra esposto, autorizza il trattamento dei propri dati per i fini sopra descritti. 							</h5>
+    <div class="d-flex">
+        <div class="d-block">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              <h5>Autorizza</h5>
+            </label>
+          </div>
+        
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              <h5>Non autorizza</h5>
+            </label>
+          </div>
+        </div>
+    <div class="w-25 mx-auto">
+        <h5>il Titolare del trattamento a consegnare documenti personali e/o sensibili ai seguti soggetti:						</h5>
+    </div>
+    </div>
+
+    <h5>L’interessato, si impegna a notificare a mezzo di lettera raccomandata o Posta elettronica Certificata (PEC) l'opposizione, la limitazione al trattamento dei propri dati personali o sensibili o la cancellazione degli stessi dagli archivi al Titolare del Trattamento. 							</h5>
+
+    <h5>Forlì, lì {{cliente.data_inizio}}</h5>
+    <div class="w-25">
+    <h5>L'interessato</h5>
+    <br>
+    <hr>
+    </div>
+    <br>
+    <br>
+
+</div>
+
+    <script>
+        var mapObj = {
+            _nome:"{{cliente.nome}}",
+            _cognome:"{{cliente.cognome}}",
+            _ragione_sociale:"{{cliente.ragione_sociale}}",
+            _capo:"<br>",
+            _data_costituzione:"{{cliente.data_costituzione}}",
+            _indirizzo:"{{cliente.indirizzo}}",
+            _città:"{{cliente.city}}",
+            _codice_fiscale:"{{cliente.codice_fiscale}}",
+            _partita_iva:"{{cliente.partita_iva}}",
+            _natura_giuridica:"{{cliente.natura_giuridica}}",
+            _data_costituzione:"{{cliente.data_costituzione}}",
+            _luogo_nascita:"{{cliente.luogo_nascita}}",
+            _data_nascita:"{{cliente.data_nascita}}",
+            _comune:"{{cliente.comune}}",
+            _tipo_documento:"{{cliente.tipo_documento}}",
+            _data_rilascio:"{{cliente.data_rilascio}}",
+            _autorità:"{{cliente.autorità}}",
+            _numero:"{{cliente.numero}}",
+            _studio_denominazione:"{{cliente.studio}}",
+            _studio_indirizzo :"{{cliente.studio.indirizzo}}",
+            _studio_città :"{{cliente.studio.city}}",
+            _studio_telefono :"{{cliente.studio.telefono}}",
+            _studio_email : "{{cliente.studio.email}}",
+         };
+
+        let str = document.getElementById("container").innerHTML; 
+        let res = str = str.replace(/_nome|_cognome|_data_costituzione|_ragione_sociale|_capo|_città|_indirizzo|_codice_fiscale|_partita_iva|_natura_giuridica|_data_costituzione|_luogo_nascita|_data_nascita|_comune|_tipo_documento|_data_rilascio|_autorità|_numero|_studio_denominazione|_studio_email|_studio_telefono|_studio_città|_studio_indirizzo/gi, function(matched){
+            return mapObj[matched];
+          });
+        
+        document.getElementById("container").innerHTML = res;
+
+        
+        
+        window.onload = function CreatePDFfromHTML() {
+            var HTML_Width = $("body").width();
+            var HTML_Height = $("body").height();
+            var top_left_margin = 15;
+            var PDF_Width = HTML_Width + (top_left_margin * 2);
+            var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+            var canvas_image_width = HTML_Width;
+            var canvas_image_height = HTML_Height;
+        
+            var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+        
+            html2canvas($("body")[0]).then(function (canvas) {
+                var imgData = canvas.toDataURL("image/jpeg", 1.0);
+                var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+                pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+                for (var i = 1; i <= totalPDFPages; i++) { 
+                    pdf.addPage(PDF_Width, PDF_Height);
+                    pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+                }
+                pdf.save("Your_PDF_Name.pdf");
+               // $("body").hide();
+            });
+        };
+    </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+

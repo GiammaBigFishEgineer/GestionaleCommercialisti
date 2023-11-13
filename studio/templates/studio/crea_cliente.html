@@ -1,0 +1,104 @@
+{% extends 'studio/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<section style="color:#fff;padding:50px;" id="modifica_cliente">
+
+    <h2 class="mb-3">Registra un nuovo cliente</h2>
+    <form method="post">
+        {% csrf_token %}
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">Nome e Cognome</span>
+        {{form.nome}}
+        {{form.cognome}}
+        <span class="input-group-text">Ragione sociale</span>
+        {{form.ragione_sociale}}
+      </div>
+  
+      <div class="input-group mb-3">
+        <span class="input-group-text">Città</span>
+        {{form.city}}
+        <span class="input-group-text">Indirizzo</span>
+        {{form.indirizzo}}
+        <span class="input-group-text">Comune</span>
+        {{form.comune}}
+      </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon3">Partita IVA</span>
+    {{form.partita_iva}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Codice Fiscale</span>
+    {{form.codice_fiscale}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Natura Giuridica</span>
+    {{form.natura_giuridica}}
+    <span class="input-group-text">Data Costituzione</span>
+    {{form.data_costituzione}}
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Luogo di nascita</span>
+    {{form.luogo_nascita}}
+    <span class="input-group-text">Data Di Nascita</span>
+    {{form.data_nascita}}
+    
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Tipo documento</span>
+    {{form.tipo_documento}}
+    <span class="input-group-text">Data rilascio</span>
+    {{form.data_rilascio}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Autorità</span>
+    {{form.autorità}}
+    <span class="input-group-text">Numero Telefono</span>
+    {{form.numero}}
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Compagnia Assicurazione</span>
+    {{form.compagnia_assicurazione}}
+    <span class="input-group-text">Numero Polizza</span>
+    {{form.numero_polizza}}
+    <span class="input-group-text">Massimale Copertura</span>
+    {{form.massimale_copertura}}
+  </div>
+
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupSelect01">Studio</label>
+    {{form.studio}}
+  </div>
+  <button type="submit" class="btn btn-primary mb-3">Registra cliente</button>
+  {% if form.errors %}
+  <div class="alert alert-danger">
+    <h4>{{form.errors}}</h4>
+  </div>
+  {% endif %}
+</form>
+</section>
+
+<script>
+ 
+        var cols = document.getElementsByTagName("input");
+        for(i = 0; i < cols.length; i++) {
+          cols[i].className = 'form-control form-control-sm';
+        }
+        document.getElementById('id_studio').className = 'form-select form-select-sm';
+
+        document.getElementById('id_data_costituzione').type = 'date';
+        document.getElementById('id_data_nascita').type = 'date';
+        document.getElementById('id_data_rilascio').type = 'date';
+        document.getElementById('id_data_inizio').type = 'date';
+        document.getElementById('id_data_cessazione').type = 'date';
+
+      
+</script>
+{% endblock content %}

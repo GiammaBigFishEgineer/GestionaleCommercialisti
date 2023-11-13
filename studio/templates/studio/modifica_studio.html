@@ -1,0 +1,148 @@
+{% extends 'studio/navbar.html' %}
+{% load static %}
+{% block content %}
+
+<section style="color:#fff;padding:50px;" id="modifica_studio">
+
+    <h2 class="mb-3">Anagrafica {{studio.denominazione}}</h2>
+
+    
+    <form method="post">
+        {% csrf_token %}
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">Denominazione</span>
+        {{form.denominazione}}
+      </div>
+  
+      <div class="input-group mb-3">
+        <span class="input-group-text">Città</span>
+        {{form.city}}
+        <span class="input-group-text">Indirizzo</span>
+        {{form.indirizzo}}
+      </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon3">Partita IVA</span>
+    {{form.partita_iva}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Codice Fiscale</span>
+    {{form.codice_fiscale}}
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text">Telefono</span>
+    {{form.telefono}}
+    <span class="input-group-text">Email</span>
+    {{form.email}}
+  </div>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text">Fax</span>
+    {{form.fax}}
+    <span class="input-group-text">Sito Web</span>
+    {{form.sito_web}}
+    
+  </div>
+
+  
+  <button type="submit" class="btn btn-primary mb-3">Modifica</button>
+</form>
+
+<div class="d-flex">
+  {% if lista_referenti %}
+<ul class="list-group mb-3 mt-5 w-50">
+  <li class="list-group-item list-group-item-success" aria-current="true">Lista Referenti</li>
+  {% for i in lista_referenti%}
+  <li onclick="showR{{i.id}}()" style="cursor:pointer;" class="list-group-item d-flex justify-content-between align-items-start">
+    {{i.denominazione}}
+    <span class="">
+      <a href="{% url 'elimina_referente' i.pk %}" onclick="cancella(event);" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+    </span>
+  </li>
+{%endfor%}
+</ul>
+{%endif%}
+
+<style>
+  .showedR{
+    display:none;
+  }
+</style>
+{% for i in lista_referenti%}
+<ul id="{{i.id}}" class="list-group mb-3 mt-5 mx-auto w-25 showedR">
+  <li class="list-group-item list-group-item-success" aria-current="true">Info</li>
+  <li class="list-group-item">{{i.email}}</li>
+  <li class="list-group-item">{{i.telefono}}</li>
+  <li class="list-group-item">{{i.codice_fiscale}}</li>
+  <li class="list-group-item">{{i.indirizzo}}</li>
+</ul>
+{%endfor%}
+
+</div>
+
+</section>
+<div class="container mb-5">
+  <h2>Registra un Referente Studio</h2>
+<form method="post" class="w-50" action="{% url 'crea_referente' studio.pk %}">
+{%csrf_token%}
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Denominazione</span>
+    <input type="text" name="denominazione" class="form-control" placeholder="Denominazione" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Codice Fiscale</span>
+    <input type="text" name="codice_fiscale" class="form-control" placeholder="Codice Fiscale" aria-label="Username" aria-describedby="basic-addon1">
+    <span class="input-group-text" id="basic-addon1">Indirizzo</span>
+    <input type="text" name="indirizzo" class="form-control" placeholder="Indirizzo" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Email</span>
+    <input type="email" name="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+    <span class="input-group-text" id="basic-addon1">Telefono</span>
+    <input type="text" name="telefono" class="form-control" placeholder="Telefono" aria-describedby="basic-addon1">
+  
+  </div>
+  <button type="submit" class="btn btn-primary">Registra</button>
+  </form>
+</div>
+
+</section>
+
+<script>
+ 
+        var cols = document.getElementsByTagName("input");
+        for(i = 0; i < cols.length; i++) {
+          cols[i].className = 'form-control';
+        }
+        document.getElementById('id_studio').className = 'form-select';
+
+      
+        {% for i in lista_referenti%}
+        function showR{{i.id}}(){
+          var elem{{i.id}}= document.getElementById("{{i.id}}");
+
+          const a = document.getElementsByClassName("showedR");
+          for (let i = 0; i < a.length; i++) {
+              if(a[i]==elem{{i.id}}){
+                  a[i].style.display='block';
+              }else{
+                  a[i].style.display='none';
+              }
+              
+              }
+        }
+        {%endfor%}
+
+
+        function cancella(e)
+        {
+            if(!confirm('Questa azione é irreversibile, sei sicuro ?')) {
+                e.preventDefault();
+            }
+        }
+</script>
+{% endblock content %}

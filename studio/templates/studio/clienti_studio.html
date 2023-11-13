@@ -1,0 +1,58 @@
+{% extends 'studio/navbar.html' %}
+{% load static %}
+{% block content %}
+    <h2 style="padding:50px"> Clienti dello studio {{studio}}</h2>
+<table class="table table-sm table-bordered table-dark table-striped table-hover">
+    <thead>
+     
+      <tr>
+        <th scope="col">Nome/<br>Cognome</th>
+        <th scope="col">Indirizzo</th>
+        <th scope="col">Città</th>
+        <th scope="col">Codice Fiscale</th>
+        <th scope="col">Partita IVA</th>
+        <th scope="col">Natura Giuridica</th>
+        <th scope="col">Data Costituzione</th>
+        <th scope="col">Luogo Nascita</th>
+        <th scope="col">Data Nascita</th>
+        <th scope="col">Comune</th>
+        <th scope="col">Tipo Documento</th>
+        <th scope="col">Data Rilascio</th>
+        <th scope="col">Autorità</th>
+        <th scope="col">Cell</th>
+        <th scope="col">Studio</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for cliente in lista%}
+      {% if cliente.firmato_scaduto%}
+      <tr style="cursor:pointer;"
+      onclick="document.location = '{% url 'modifica_cliente' cliente.pk %}';"
+      class="table-danger">
+      {%else%}
+      <tr style="cursor:pointer;"
+      onclick="document.location = '{% url 'modifica_cliente' cliente.pk %}';">
+      {%endif%}
+        <th>{{cliente.nome}} {{cliente.cognome}}</th>
+        <th>{{cliente.indirizzo}}</th>
+        <th>{{cliente.city}}</th>
+        <th>{{cliente.codice_fiscale}}</th>      
+        <th>{{cliente.partita_iva}}</th>
+        <th>{{cliente.natura_giuridica}}</th>
+        <th>{{cliente.data_costituzione}}</th>
+        <th>{{cliente.luogo_nascita}}</th>
+        <th>{{cliente.data_nascita}}</th>
+        <th>{{cliente.comune}}</th>
+        <th>{{cliente.tipo_documento}}</th>
+        <th>{{cliente.data_rilascio}}</th>
+        <th>{{cliente.autorità}}</th>
+        <th>{{cliente.numero}}</th>
+        <th>{{cliente.studio}}</th>
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+
+
+
+{% endblock content %}

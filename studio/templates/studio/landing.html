@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestionale Solomon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/db6ff0c9b0.js" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+  <body class="bg-dark position-absolute h-100 w-100">
+    <main class="d-flex flex-nowrap bg-dark h-100">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-light h-100" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4">Lista studi</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+
+          
+          {% for studio in lista_studio%}
+          <li>
+            <a href="#" onclick="Function{{studio.id}}();" class="nav-link text-dark">
+              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+              {{studio}}
+            </a>
+          </li>
+          {%endfor%}
+          
+        </ul>
+       
+        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-4 text-dark">Pagine</span>
+          </a>
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+  
+            <li class="nav-item">
+              <a href="{% url 'lista_clienti' %}" class="nav-link active" aria-current="page">
+                <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                Lista tutti i clienti
+              </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'crea_cliente' %}" class="nav-link" aria-current="page">
+                  <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                  Registra cliente
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'crea_studio' %}" class="nav-link" aria-current="page">
+                  <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                  Registra studio
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{% url 'logout' %}" class="nav-link" aria-current="page">
+                  <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                  Logout
+                </a>
+              </li>
+              
+            
+            
+          </ul>
+      </div>
+      
+    <style>
+        .studio{
+            display:none;
+        }
+        .studio:first-child{
+            display:block;
+        }
+    </style>
+
+      <div class="container-fluid overflow-auto bg-dark text-light w-100 p-5">
+
+       {% for studio in lista_studio%}
+<div id="{{studio.id}}" class="studio w-100 h-100">
+    <h1 class="mb-5">{{studio.denominazione}} </h1>
+    <div class="row w-100">
+        <div class="col-sm-4">
+          <div class="card text-dark">
+            <div class="card-body">
+                <div class="row">
+               <div class="col">
+                <h5 class="card-title">Città</h5>
+                <p class="card-text">{{studio.city}}.</p>
+               </div>
+               <div class="col">
+                <h1><i class="fa-solid fa-city"></i></h1>
+               </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-dark">
+              <div class="card-body">
+                  <div class="row">
+                 <div class="col">
+                  <h5 class="card-title">Indirizzo</h5>
+                  <p class="card-text">{{studio.indirizzo}}.</p>
+                 </div>
+                 <div class="col">
+                  <h1><i class="fa-solid fa-map-pin"></i></h1>
+                 </div>
+              </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card text-dark">
+              <div class="card-body">
+                  <div class="row">
+                 <div class="col">
+                  <h5 class="card-title">Codice Fiscale</h5>
+                  <p class="card-text">{{studio.codice_fiscale}}.</p>
+                 </div>
+                 <div class="col">
+                  <h1><i class="fa-solid fa-id-card"></i></h1>
+                 </div>
+              </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row w-100 mt-5">
+        <div class="col-sm-4">
+          <div class="card text-dark">
+            <div class="card-body">
+                <div class="row">
+               <div class="col">
+                <h5 class="card-title">Partita IVA</h5>
+                <p class="card-text">{{studio.partita_iva}}.</p>
+               </div>
+               <div class="col">
+                <h1><i class="fa-solid fa-briefcase"></i></h1>
+               </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-dark">
+              <div class="card-body">
+                  <div class="row">
+                 <div class="col">
+                  <h5 class="card-title">Telefono</h5>
+                  <p class="card-text">{{studio.telefono}}.</p>
+                 </div>
+                 <div class="col">
+                  <h1><i class="fa-solid fa-phone"></i></h1>
+                 </div>
+              </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card text-dark">
+              <div class="card-body">
+                  <div class="row">
+                 <div class="col">
+                  <h5 class="card-title">Email</h5>
+                  <p class="card-text">{{studio.email}}.</p>
+                 </div>
+                 <div class="col">
+                  <h1><i class="fa-solid fa-envelope"></i></h1>
+                 </div>
+              </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row w-100 mt-5">
+        <div class="col-sm-4">
+          <div class="card text-dark">
+            <div class="card-body">
+                <div class="row">
+               <div class="col">
+                <h5 class="card-title">Fax</h5>
+                <p class="card-text">{{studio.fax}}.</p>
+               </div>
+               <div class="col">
+                <h1><i class="fa-solid fa-fax"></i></h1>
+               </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card text-dark">
+              <div class="card-body">
+                  <div class="row">
+                 <div class="col">
+                  <h5 class="card-title">Sito Web</h5>
+                  <p class="card-text">{{studio.sito_web}}.</p>
+                 </div>
+                 <div class="col">
+                  <h1><i class="fa-regular fa-globe"></i></h1>
+                 </div>
+              </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card text-dark">
+              <div class="card-body">
+                <a href="{% url 'modifica_studio' studio.pk %}" class="btn btn-primary">Modifica studio</a>
+                <a href="{% url 'clienti_studio' studio.pk %}" class="btn btn-success">Visualizza clienti</a>
+                <form action="{% url 'elimina_studio' studio.pk %}">
+                    <button type="submit" class="btn btn-danger mt-4" onclick="clicked(event)">
+                    Elimina Studio</button>
+                    </form>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+       {%endfor%}
+</div>
+
+    </main>
+
+    
+<script>
+
+    {%for studio in lista_studio%}
+function Function{{studio.id}}(){
+var elem{{studio.id}}= document.getElementById("{{studio.id}}");
+
+const a = document.getElementsByClassName("studio");
+for (let i = 0; i < a.length; i++) {
+    if(a[i]==elem{{studio.id}}){
+        a[i].style.display='block';
+    }else{
+        a[i].style.display='none';
+    }
+    
+    }
+}  
+    {%endfor%}
+
+    function clicked(e)
+        {
+            if(!confirm('Questa azione é irreversibile, eliminando questo studio perderai TUTTI I CLIENTI AD ESSO ASSOCIATO. Vuoi continuare ?')) {
+                e.preventDefault();
+            }
+        }
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script> 
+</body>
+</html>
